@@ -2,13 +2,17 @@ import './App.css';
 import Logo from '../logo.svg';
 import AuthContent from './AuthContent';
 import Header from './Header';
-import LoginForm from './LoginForm';
+import { Routes, Route } from 'react-router-dom';
+import Campaigns from './campaigns';
 
 function App() {
   return (
-    <div>
-      <Header pageTitle="Auth" logoSrc={Logo} />
-      <AuthContent />
+    <div >
+      <Header />
+     <Routes>
+        <Route path='/login' element={<AuthContent />} />
+        <Route path='/campaigns' element={<Campaigns />} />
+     </Routes>
     </div>
   )
 }

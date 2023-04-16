@@ -1,12 +1,10 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-// function with props
 export default function LoginForm(props) {
-    // firstname, lastname, login, password, onLogin, onRegister
     const [firstname, setFirstname] = React.useState('');
     const [lastname, setLastname] = React.useState('');
-    const [login, setLogin] = React.useState('');
+    const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
     const [isLogin, setIsLogin] = React.useState(true);
     const [isRegister, setIsRegister] = React.useState(false);
@@ -14,27 +12,15 @@ export default function LoginForm(props) {
 
    let onSubmitLogin = (e) => {
         e.preventDefault();
-       props.onLogin(e, login, password);
+        console.log(email, password)
+       props.onLogin(e, email, password);
     };
 
    let onSubmitRegister = (e) => {
         e.preventDefault();
-        props.onRegister(e, firstname, lastname, login, password);
+        props.onRegister(e, firstname, lastname, email, password);
     };
 
-
-    // onChangeHandler = (event) => {
-    //     this.setState({
-    //         [event.target.name]: event.target.value
-    //     });
-    // }
-    
-    //  onSubmitHandler = (event) => {
-    //     event.preventDefault();
-    //     this.props.onSubmit(this.state);
-    // }
-
-    // return JSX
     return (
         <div className="container">
             <div className="row">
@@ -54,35 +40,35 @@ export default function LoginForm(props) {
                             {isLogin && (
                                 <div>
                                     <div className="form-group">
-                                        <label htmlFor="login">Login</label>
-                                        <input type="text" className="form-control" id="login" placeholder="Enter login" value={login} onChange={(e) => setLogin(e.target.value)} />
+                                        <label htmlFor="email">Email</label>
+                                        <input type="email" className="mb-2 form-control" id="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} />
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="password">Password</label>
-                                        <input type="password" className="form-control" id="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                                        <input type="password" className="mb-2 form-control" id="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                                     </div>
-                                    <button type="submit" className="btn btn-primary" onClick={onSubmitLogin}>Login</button>
+                                    <button type="submit" className="mt-2 btn btn-primary" onClick={onSubmitLogin}>Login</button>
                                 </div>
                             )}
                             {isRegister && (
                                 <div>
                                     <div className="form-group">
-                                        <label htmlFor="firstname">Firstname</label>
-                                        <input type="text" className="form-control" id="firstname" placeholder="Enter firstname" value={firstname} onChange={(e) => setFirstname(e.target.value)} />
+                                        <label htmlFor="firstname">First name</label>
+                                        <input type="text" className="mb-2 form-control" id="firstname" placeholder="Enter firstname" value={firstname} onChange={(e) => setFirstname(e.target.value)} />
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="lastname">Lastname</label>
-                                        <input type="text" className="form-control" id="lastname" placeholder="Enter lastname" value={lastname} onChange={(e) => setLastname(e.target.value)} />
+                                        <label htmlFor="lastname">Last name</label>
+                                        <input type="text" className="mb-2 form-control" id="lastname" placeholder="Enter lastname" value={lastname} onChange={(e) => setLastname(e.target.value)} />
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="login">Login</label>
-                                        <input type="text" className="form-control" id="login" placeholder="Enter login" value={login} onChange={(e) => setLogin(e.target.value)} />
+                                        <label htmlFor="email">Email</label>
+                                        <input type="email" className="mb-2 form-control" id="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} />
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="password">Password</label>
-                                        <input type="password" className="form-control" id="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                                        <input type="password" className="mb-2 form-control" id="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                                     </div>
-                                    <button type="submit" className="btn btn-primary" onClick={onSubmitRegister}>Register</button>
+                                    <button type="submit" className="mt-2 btn btn-primary" onClick={onSubmitRegister}>Register</button>
                                 </div>
                             )}
                         </div>
