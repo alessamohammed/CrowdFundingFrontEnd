@@ -8,7 +8,8 @@ export default function Campaigns() {
     const [campaigns, setCampaigns] = useState([]);
     
     useEffect(() => {
-        request("GET", "/campaign/all").then((response) => {
+        request("GET", "/campaign/approved").then((response) => {
+            console.log(response.data);
             setCampaigns(response.data);
         });
     }
@@ -21,6 +22,7 @@ export default function Campaigns() {
             {campaigns.map((campaign) => (
                 <div className="col">
                 <Card className="mb-3" style={{ width: '18rem' }}>
+                    <Card.Img variant="top" className=""  src={campaign.imageUrl} />
                     <Card.Body>
                         <Card.Title>{campaign.name}</Card.Title>
                         <Card.Text>
